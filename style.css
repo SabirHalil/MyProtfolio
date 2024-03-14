@@ -334,13 +334,13 @@ section {
 }
 
 .article-container {
-  display: flex;
+  display:flex;
   text-align: initial;
   flex-wrap: wrap;
   flex-direction: row;
  
-  gap: 2.5rem;
-  justify-content: space-around;
+  gap: 1em;
+  justify-content: space-between;
 }
 
 article {
