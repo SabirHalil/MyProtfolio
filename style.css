@@ -352,6 +352,7 @@ article {
 
 article .icon {
   cursor: default;
+  margin-right: auto;
 }
 
 /* PROJECTS SECTION */
