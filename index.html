@@ -1,426 +1,490 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabir's Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="./assets/binary-code.png">
+    <title>Sabir Halil — Software Engineer</title>
+    <meta
+      name="description"
+      content="Sabir Halil — Software Engineer specializing in Flutter mobile apps, NestJS/.NET backends and IoT security. Founder of Fırın Paneli."
+    />
+    <meta property="og:title" content="Sabir Halil — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Mobile, Backend & IoT Security. Shipping production apps to the App Store and Google Play."
+    />
+    <meta property="og:image" content="./assets/profile_pic.png" />
+    <link rel="icon" type="image/png" href="./assets/binary-code.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <script>
+      (function () {
+        const root = document.documentElement;
+        root.classList.add("js");
+        let theme = null;
+        let lang = null;
+        try {
+          theme = localStorage.getItem("theme");
+          lang = localStorage.getItem("lang");
+        } catch (e) {}
+        if (theme) root.dataset.theme = theme;
+        else if (window.matchMedia("(prefers-color-scheme: light)").matches) root.dataset.theme = "light";
+        if (!lang) {
+          const nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+          lang = ["tr", "ar"].includes(nav) ? nav : "en";
+        }
+        root.lang = lang;
+        root.dir = lang === "ar" ? "rtl" : "ltr";
+      })();
+    </script>
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">Sabir Halil</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm0 .5 9 6 9-6"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm-9-9h18M12 3c2.5 2.5 3.6 5.5 3.6 9s-1.1 6.5-3.6 9c-2.5-2.5-3.6-5.5-3.6-9S9.5 5.5 12 3Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Zm0-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7m0 0H9m8 0v8"/></symbol>
+      <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.8 1.3 10.35.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.27 3.14-2.53.99-1.45 1.4-2.86 1.42-2.93-.03-.01-2.72-1.05-2.74-4.13ZM13.79 4.97c.72-.87 1.2-2.07 1.07-3.27-1.03.04-2.28.69-3.02 1.55-.66.77-1.24 2-1.09 3.18 1.15.09 2.32-.58 3.04-1.46Z"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M3.6 1.8c-.3.3-.4.7-.4 1.2v18c0 .5.1.9.4 1.2l.1.1L13.8 12.2v-.3L3.7 1.7l-.1.1Zm13.6 13.8-3.4-3.4v-.3l3.4-3.4.1.1 4 2.3c1.1.7 1.1 1.7 0 2.4l-4 2.3h-.1Zm-.1.1L13.8 12 3.6 22.2c.4.4 1 .4 1.7.1l11.8-6.6m0-7.3L5.3 1.7c-.7-.4-1.3-.3-1.7.1L13.8 12l3.3-3.3Z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-15v2m0 16v2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M2 12h2m16 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <nav class="nav container">
+        <a href="#top" class="logo"><span class="logo-mark">SH</span><span class="logo-text">Sabir Halil</span></a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#research" data-i18n="nav.research">Research</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Sabir Halil</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile_pic.png" alt="Sabir Halil profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Sabir Halil</h1>
-        <p class="section__text__p2">Software Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="location.href='https://www.upwork.com/freelancers/~019e7d2d2f5ac1b622/'"
-
-          >
-            Upwork
+        <div class="nav-actions">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang="en" title="English">EN</button>
+            <button type="button" data-lang="tr" title="Türkçe">TR</button>
+            <button type="button" data-lang="ar" title="العربية">AR</button>
+          </div>
+          <button class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
+            <svg class="i-sun"><use href="#i-sun" /></svg>
+            <svg class="i-moon"><use href="#i-moon" /></svg>
           </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
           </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/sabir-halil/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/SabirHalil/'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about_pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>4+ years <br />Software Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>CS. Bachelors Degree<br /></p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              Welcome to my portfolio, I'm Sabir, a committed and adaptable developer with a passion for left remarkable digital experiences. With a background in mobile and backend development, specialized in promoting sustainability through the implementation of robust, clean architecture and innovative creativity.
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Languages and Frameworks</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Kotlin</h3>
-                
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C#</h3>
-               
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-             
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Dart</h3>
-              
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-              
-                </div>
-              </article>
-
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Flutter</h3>
-                 
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Django</h3>
-              
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>.NetCore</h3>
-                  
-                </div>
-              </article>
-              
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Databases</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQL Server</h3>
-
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PostgreSQL</h3>
-             
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Firebase</h3>
-         
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MongoDB</h3>
-         
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>RoomDB</h3>
-        
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQLite</h3>
-               
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/SabirHalil'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:sabir47halil@gmail.com">sabir47halil@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/sabir-halil/">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2025 Sabir Halil. All Rights Reserved.</p>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero container" id="hero">
+        <div class="hero-text reveal">
+          <span class="badge"><span class="dot"></span><span data-i18n="hero.badge">Open to new opportunities</span></span>
+          <h1>Sabir Halil</h1>
+          <p class="hero-role" data-i18n="hero.role">
+            Software Engineer — <span class="gradient-text">Mobile, Backend &amp; IoT Security</span>
+          </p>
+          <p class="hero-lead" data-i18n="hero.lead">
+            I build production Flutter apps and NestJS / .NET backends shipped to the App Store and
+            Google Play — and the secure, real-time infrastructure behind them.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects" data-i18n="hero.cta1">View my work</a>
+            <a class="btn btn-ghost" href="#contact">
+              <svg><use href="#i-mail" /></svg><span data-i18n="hero.cta2">Get in touch</span>
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span><svg><use href="#i-pin" /></svg><span data-i18n="hero.location">Kayseri, Türkiye</span></span>
+            <a href="https://github.com/SabirHalil" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github" /></svg></a>
+            <a href="https://www.linkedin.com/in/sabir-halil" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin" /></svg></a>
+            <a href="mailto:sabir47halil@gmail.com" aria-label="Email"><svg><use href="#i-mail" /></svg></a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="avatar-ring">
+            <img src="./assets/profile_pic.png" alt="Sabir Halil" width="1000" height="1000" />
+          </div>
+          <div class="float-card fc-1" dir="ltr"><span class="mono">flutter</span> · iOS &amp; Android</div>
+          <div class="float-card fc-2" dir="ltr"><span class="mono">nestjs</span> · WebSocket</div>
+          <div class="float-card fc-3" dir="ltr"><span class="mono">ids</span> · 99.87% acc</div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="container stats reveal" aria-label="Highlights">
+        <div class="stat"><strong>2+</strong><span data-i18n="stats.years">Years shipping to production</span></div>
+        <div class="stat"><strong>50+</strong><span data-i18n="stats.users">Daily users on Fırın Paneli</span></div>
+        <div class="stat"><strong>4</strong><span data-i18n="stats.langs">Languages spoken professionally</span></div>
+        <div class="stat"><strong>99.87%</strong><span data-i18n="stats.ids">IoT intrusion-detection accuracy</span></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section container" id="about">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="about.eyebrow">01 — About</span>
+          <h2 data-i18n="about.title">Engineer, founder &amp; security researcher</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-i18n="about.p1">
+              I'm a software engineer with 2+ years of production experience shipping
+              <strong>Flutter</strong> mobile apps and <strong>NestJS, Node.js and .NET</strong>
+              backends. At <strong>Gökay Bilişim</strong> I own every software layer of an IoT
+              smart-home platform — including a client-driven load balancer with no single point of
+              failure, VPN-only admin access and real-time WebSocket device control.
+            </p>
+            <p data-i18n="about.p2">
+              I'm also the founder of <strong>Fırın Paneli</strong>, a bakery management platform
+              used daily by 50+ staff, and an M.Sc. student in Cyber Security researching
+              machine-learning intrusion detection for IoT networks.
+            </p>
+            <p data-i18n="about.p3">
+              I review code the way I build it: edge cases, failure modes, security flaws and design
+              trade-offs first.
+            </p>
+          </div>
+          <div class="about-cards reveal">
+            <div class="mini-card">
+              <span class="mini-label" data-i18n="about.c1.label">Currently</span>
+              <p data-i18n="about.c1.text">Software Engineer @ Gökay Bilişim</p>
+            </div>
+            <div class="mini-card">
+              <span class="mini-label" data-i18n="about.c2.label">Education</span>
+              <p data-i18n="about.c2.text">M.Sc. Cyber Security · Kayseri University</p>
+              <p class="muted" data-i18n="about.c2.sub">B.Sc. Computer Engineering · Erciyes University</p>
+            </div>
+            <div class="mini-card">
+              <span class="mini-label" data-i18n="about.c3.label">Leadership</span>
+              <p data-i18n="about.c3.text">Team Leader, Kaysiber Research Group</p>
+            </div>
+            <div class="mini-card">
+              <span class="mini-label" data-i18n="about.c4.label">Languages</span>
+              <p data-i18n="about.c4.text">Turkish · English · Arabic · Kurdish</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section container" id="experience">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="exp.eyebrow">02 — Experience</span>
+          <h2 data-i18n="exp.title">Where I've worked</h2>
+        </div>
+        <ol class="timeline">
+          <li class="tl-item reveal">
+            <div class="tl-meta">
+              <span class="tl-date" data-i18n="date.present">2025 — Present</span>
+              <span class="tl-tag current" data-i18n="tag.current">Current</span>
+            </div>
+            <div class="tl-card">
+              <h3 data-i18n="job1.title">Software Engineer <span class="at">@ Gökay Bilişim</span></h3>
+              <p class="tl-summary" data-i18n="job1.summary">
+                Built every software layer of the Gökay Smart Home IoT platform: Flutter app (iOS
+                &amp; Android), NestJS backend, MySQL and ESP32 device communication.
+              </p>
+              <ul class="bullets">
+                <li data-i18n="job1.b1">Designed a <strong>client-driven load balancer</strong> — clients ask which node to use, then connect directly. No traffic flows through the balancer, removing the single point of failure and proxy bottleneck. Benchmarked against NGINX with k6.</li>
+                <li data-i18n="job1.b2">Implemented <strong>real-time device control over WebSockets</strong> between mobile clients, backend nodes and devices.</li>
+                <li data-i18n="job1.b3">Moved the admin dashboard and management services <strong>behind an internal VPN</strong>, off the public internet.</li>
+                <li data-i18n="job1.b4">Migrated the backend from Node.js to <strong>NestJS</strong> and integrated <strong>Google Home / Assistant</strong> voice control.</li>
+                <li data-i18n="job1.b5">Designed an <strong>AI-based intrusion detection pipeline</strong>: HMAC-SHA256 signing on devices, a NestJS WebSocket interceptor and a LightGBM model served via FastAPI.</li>
+                <li data-i18n="job1.b6">Started as an intern (Jan – Feb 2025): virtualized servers with VMware ESXi / vSphere / vCenter, firewall rules, VM isolation and backups.</li>
+              </ul>
+              <div class="tags" dir="ltr">
+                <span>Flutter</span><span>NestJS</span><span>MySQL</span><span>ESP32</span><span>WebSocket</span><span>LightGBM</span><span>FastAPI</span>
+              </div>
+              <div class="link-row">
+                <a class="chip-link" href="https://apps.apple.com/us/app/g%C3%B6kay-smart-home/id6740214997" target="_blank" rel="noopener"><svg><use href="#i-apple" /></svg>App Store</a>
+                <a class="chip-link" href="https://play.google.com/store/apps/details?id=com.gokay.smart" target="_blank" rel="noopener"><svg><use href="#i-play" /></svg>Google Play</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-meta">
+              <span class="tl-date" data-i18n="date.outlier">2025 · 4 months</span>
+              <span class="tl-tag" data-i18n="tag.freelance">Freelance</span>
+            </div>
+            <div class="tl-card">
+              <h3 data-i18n="job2.title">AI Model Evaluator <span class="at">@ Outlier</span></h3>
+              <ul class="bullets">
+                <li data-i18n="job2.b1">Evaluated AI model outputs for correctness, reasoning quality and instruction-following alongside full-time engineering work.</li>
+                <li data-i18n="job2.b2">Reviewed model-generated answers and code against task requirements; flagged errors, weak reasoning and edge cases.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-meta">
+              <span class="tl-date" data-i18n="date.sorosons">Apr 2024 — 2025</span>
+            </div>
+            <div class="tl-card">
+              <h3 data-i18n="job3.title">Software Engineer <span class="at">@ Sorosons Software</span></h3>
+              <ul class="bullets">
+                <li data-i18n="job3.b1">Built and shipped multiple consumer and enterprise apps to the App Store and Google Play — wholesale management systems, medical automation tools and entertainment apps.</li>
+                <li data-i18n="job3.b2">Mobile with Flutter and Kotlin; backends with Node.js, .NET Core and Django; data in MS SQL, MySQL and MongoDB.</li>
+                <li data-i18n="job3.b3">Integrated Firebase auth &amp; push notifications, RevenueCat subscriptions, Google Cloud and third-party APIs.</li>
+              </ul>
+              <div class="tags" dir="ltr">
+                <span>Flutter</span><span>Kotlin</span><span>.NET Core</span><span>Node.js</span><span>Django</span><span>Firebase</span><span>RevenueCat</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-meta">
+              <span class="tl-date" data-i18n="date.pronic">Aug — Sep 2023</span>
+              <span class="tl-tag" data-i18n="tag.internship">Internship</span>
+            </div>
+            <div class="tl-card">
+              <h3 data-i18n="job4.title">Software Intern <span class="at">@ Pronic Yazılım</span></h3>
+              <p class="tl-summary" data-i18n="job4.summary">
+                Built a university student system (documents, announcements, course selection,
+                campus map) with .NET Core, JWT and SQL Server; Android client in Kotlin with MVVM,
+                Dagger Hilt and Retrofit.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-meta">
+              <span class="tl-date" data-i18n="date.otonom">Oct 2022 — Apr 2023</span>
+              <span class="tl-tag" data-i18n="tag.volunteer">Volunteer</span>
+            </div>
+            <div class="tl-card">
+              <h3 data-i18n="job5.title">Mobile Developer <span class="at">@ Erciyes Otonom</span></h3>
+              <p class="tl-summary" data-i18n="job5.summary">
+                Built a real-time telemetry app for an electric autonomous vehicle (battery,
+                temperature, location) with Kotlin and Firebase Realtime Database; presented at fairs
+                and conferences.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section container" id="projects">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="proj.eyebrow">03 — Projects</span>
+          <h2 data-i18n="proj.title">Featured work</h2>
+        </div>
+
+        <article class="feature-card reveal">
+          <div class="feature-body">
+            <span class="feature-kicker" data-i18n="firin.kicker">Founder &amp; sole developer · SaaS</span>
+            <h3>Fırın Paneli</h3>
+            <p class="feature-sub" data-i18n="firin.sub">Bakery &amp; pastry management platform</p>
+            <p data-i18n="firin.desc">
+              A multi-tenant SaaS that replaced paper ledgers and manual arithmetic in bakeries. The
+              system automatically calculates client balances, stale-product rates, cash
+              differences and net salaries.
+            </p>
+            <ul class="bullets">
+              <li data-i18n="firin.b1"><strong>11 modules</strong>: production, counter sales, delivery routes, retail-client balances, stock &amp; cash counts, payroll and PDF reporting.</li>
+              <li data-i18n="firin.b2">In daily use by <strong>50+ staff</strong>, including a multi-branch chain whose branch reports roll up to head office.</li>
+              <li data-i18n="firin.b3">Role-based access with <strong>9 permission levels</strong> — from company owner to bakers, sales staff and delivery drivers.</li>
+              <li data-i18n="firin.b4">Flutter apps (iOS &amp; Android), web manager dashboard, .NET Core / SQL Server backend — Dockerized on Linux behind a Caddy HTTPS reverse proxy.</li>
+              <li data-i18n="firin.b5">Product site and store listings localized in Turkish, English and German.</li>
+            </ul>
+            <div class="tags" dir="ltr">
+              <span>Flutter</span><span>.NET Core</span><span>SQL Server</span><span>Docker</span><span>Caddy</span><span>Multi-tenant</span>
+            </div>
+            <div class="link-row">
+              <a class="chip-link" href="https://firinpanel.com/" target="_blank" rel="noopener"><svg><use href="#i-globe" /></svg><span data-i18n="link.website">Website</span></a>
+              <a class="chip-link" href="https://panel.firinpanel.com/" target="_blank" rel="noopener"><svg><use href="#i-arrow" /></svg><span data-i18n="link.dashboard">Dashboard</span></a>
+              <a class="chip-link" href="https://apps.apple.com/us/app/bakery-pastry-management/id6759602007" target="_blank" rel="noopener"><svg><use href="#i-apple" /></svg>App Store</a>
+              <a class="chip-link" href="https://play.google.com/store/apps/details?id=com.bakery.system" target="_blank" rel="noopener"><svg><use href="#i-play" /></svg>Google Play</a>
+            </div>
+          </div>
+          <div class="feature-stats">
+            <div><strong>50+</strong><span data-i18n="firin.s1">daily staff</span></div>
+            <div><strong>11</strong><span data-i18n="firin.s2">modules</span></div>
+            <div><strong>9</strong><span data-i18n="firin.s3">role levels</span></div>
+            <div><strong>3</strong><span data-i18n="firin.s4">languages</span></div>
+          </div>
+        </article>
+
+        <div class="card-grid">
+          <article class="card reveal">
+            <span class="feature-kicker" data-i18n="card1.kicker">IoT · Production</span>
+            <h3>Gökay Smart Home</h3>
+            <p data-i18n="card1.desc">
+              End-to-end smart-home platform: Flutter app, NestJS backend, ESP32 devices, real-time
+              WebSocket control, Google Home voice integration and VPN-isolated admin services.
+            </p>
+            <div class="tags" dir="ltr"><span>Flutter</span><span>NestJS</span><span>ESP32</span><span>Google Home</span></div>
+            <div class="link-row">
+              <a class="chip-link" href="https://apps.apple.com/us/app/g%C3%B6kay-smart-home/id6740214997" target="_blank" rel="noopener"><svg><use href="#i-apple" /></svg>App Store</a>
+              <a class="chip-link" href="https://play.google.com/store/apps/details?id=com.gokay.smart" target="_blank" rel="noopener"><svg><use href="#i-play" /></svg>Google Play</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <span class="feature-kicker" data-i18n="card2.kicker">Distributed systems · Research</span>
+            <h3 data-i18n="card2.title">Proxy-Free Load Balancing</h3>
+            <p data-i18n="card2.desc">
+              Client-driven load balancing for real-time IoT systems — no traffic through the
+              balancer, no single point of failure. Reproducible experiment kit with k6, an NGINX
+              baseline, Docker Compose and Python analysis on Google Cloud.
+            </p>
+            <div class="tags" dir="ltr"><span>k6</span><span>NGINX</span><span>Docker Compose</span><span>GCP</span></div>
+          </article>
+
+          <article class="card reveal">
+            <span class="feature-kicker" data-i18n="card3.kicker">Security · Machine Learning</span>
+            <h3 data-i18n="card3.title">AI Intrusion Detection Pipeline</h3>
+            <p data-i18n="card3.desc">
+              HMAC-SHA256 message signing on devices, a NestJS WebSocket interceptor and a LightGBM
+              model served through FastAPI to detect malicious traffic in real time.
+            </p>
+            <div class="tags" dir="ltr"><span>LightGBM</span><span>FastAPI</span><span>HMAC</span><span>NestJS</span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- RESEARCH -->
+      <section class="section container" id="research">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="research.eyebrow">04 — Research &amp; Leadership</span>
+          <h2 data-i18n="research.title">Securing IoT with machine learning</h2>
+        </div>
+        <div class="research-grid">
+          <div class="research-item reveal">
+            <span class="r-type" data-i18n="r1.type">Leadership</span>
+            <h3 data-i18n="r1.title">Team Leader, Kaysiber Research Group</h3>
+            <p data-i18n="r1.desc">Kayseri University Cyber Security and Systems Infrastructure Laboratories; affiliated with the university's Cyber Security Application and Research Center.</p>
+          </div>
+          <div class="research-item reveal">
+            <span class="r-type" data-i18n="r2.type">M.Sc. Thesis · In progress</span>
+            <h3 data-i18n="r2.title">ML-Based Real-Time Intrusion Detection for IoT Networks</h3>
+            <p data-i18n="r2.desc">Advisor: Prof. Dr. Ali Gezer.</p>
+          </div>
+          <div class="research-item reveal">
+            <span class="r-type" data-i18n="r3.type">Journal · In submission</span>
+            <h3 dir="ltr">Client-Driven Proxy-Free Load Balancing for Real-Time IoT Systems</h3>
+            <p data-i18n="r3.desc">With Prof. Dr. Ali Gezer. Reproducible experiment kit on Google Cloud.</p>
+          </div>
+          <div class="research-item reveal">
+            <span class="r-type" data-i18n="r4.type">Conference presentation</span>
+            <h3 dir="ltr">Stability-aware Bayesian Optimization for IIoT Intrusion Detection</h3>
+            <p data-i18n="r4.desc">Optuna TPE + LightGBM on TON_IoT: <strong>99.87% accuracy</strong> with <strong>53% fewer features</strong>.</p>
+          </div>
+          <div class="research-item reveal">
+            <span class="r-type" data-i18n="r5.type">Research</span>
+            <h3 data-i18n="r5.title">IoT Anomaly Detection</h3>
+            <p data-i18n="r5.desc">Autoencoder and Isolation Forest models on the IoT-23 dataset.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section container" id="skills">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="skills.eyebrow">05 — Skills</span>
+          <h2 data-i18n="skills.title">Technical toolkit</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.langs">Languages</h3>
+            <div class="tags" dir="ltr"><span>Dart</span><span>TypeScript</span><span>JavaScript</span><span>Kotlin</span><span>Java</span><span>C#</span><span>Python</span><span>SQL</span></div>
+          </div>
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.mobile">Mobile</h3>
+            <div class="tags" dir="ltr"><span>Flutter</span><span>Clean Architecture</span><span>GetX</span><span>Android / Kotlin</span><span>MVVM</span><span>Hilt</span><span>Retrofit</span><span>Firebase</span><span>RevenueCat</span><span>Store publishing</span></div>
+          </div>
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.backend">Backend</h3>
+            <div class="tags" dir="ltr"><span>NestJS</span><span>Node.js</span><span>ASP.NET Core</span><span>Entity Framework</span><span>Django</span><span>FastAPI</span><span>REST</span><span>WebSocket</span><span>JWT</span></div>
+          </div>
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.data">Data</h3>
+            <div class="tags" dir="ltr"><span>MySQL</span><span>MS SQL Server</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>SQLite</span></div>
+          </div>
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.infra">Infrastructure</h3>
+            <div class="tags" dir="ltr"><span>Docker</span><span>Docker Compose</span><span>Linux</span><span>NGINX</span><span>Caddy</span><span>VPN</span><span>Google Cloud</span><span>VMware ESXi / vSphere</span><span>k6</span><span>Git</span></div>
+          </div>
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.security">Security &amp; ML</h3>
+            <div class="tags" dir="ltr"><span>Intrusion detection</span><span>HMAC signing</span><span>Network isolation</span><span>LightGBM</span><span>Optuna</span><span>Autoencoders</span><span>Isolation Forest</span></div>
+          </div>
+          <div class="skill-group reveal">
+            <h3 data-i18n="skills.iot">IoT</h3>
+            <div class="tags" dir="ltr"><span>ESP32</span><span>Real-time device control</span><span>Google Home</span><span>Load balancing</span><span>System design</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section container" id="education">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="edu.eyebrow">06 — Education</span>
+          <h2 data-i18n="edu.title">Education &amp; certifications</h2>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-col reveal">
+            <div class="edu-item">
+              <span class="tl-date" data-i18n="date.present">2025 — Present</span>
+              <h3 data-i18n="edu1.title">M.Sc. Cyber Security</h3>
+              <p data-i18n="edu1.desc">Kayseri University · Coursework completed, thesis phase</p>
+            </div>
+            <div class="edu-item">
+              <span class="tl-date">2021 — 2025</span>
+              <h3 data-i18n="edu2.title">B.Sc. Computer Engineering</h3>
+              <p data-i18n="edu2.desc">Erciyes University</p>
+            </div>
+          </div>
+          <ul class="cert-list reveal">
+            <li><span dir="ltr">Supervised Machine Learning: Regression and Classification</span><em>Coursera · 2025</em></li>
+            <li><span dir="ltr">Machine Learning</span><em>Coursera · 2025</em></li>
+            <li><span dir="ltr">Game Jam</span><em>Erciyes Teknopark · 2024</em></li>
+            <li><span dir="ltr">Back-End &amp; Database Bootcamps</span><em>Techcareer.net · 2023</em></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section container" id="contact">
+        <div class="contact-card reveal">
+          <span class="eyebrow" data-i18n="contact.eyebrow">07 — Contact</span>
+          <h2 data-i18n="contact.title">Let's build something reliable.</h2>
+          <p data-i18n="contact.desc">
+            Open to software engineering roles, freelance projects and research collaboration in
+            mobile, backend and IoT security.
+          </p>
+          <div class="hero-cta center">
+            <a class="btn btn-primary" href="mailto:sabir47halil@gmail.com"><svg><use href="#i-mail" /></svg>sabir47halil@gmail.com</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/sabir-halil" target="_blank" rel="noopener"><svg><use href="#i-linkedin" /></svg><span data-i18n="contact.linkedin">Connect on LinkedIn</span></a>
+          </div>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/sabir-halil" target="_blank" rel="noopener"><svg><use href="#i-linkedin" /></svg>LinkedIn</a>
+            <a href="https://github.com/SabirHalil" target="_blank" rel="noopener"><svg><use href="#i-github" /></svg>GitHub</a>
+            <a href="https://www.upwork.com/freelancers/~019e7d2d2f5ac1b622/" target="_blank" rel="noopener"><svg><use href="#i-arrow" /></svg>Upwork</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>© <span id="year">2026</span> Sabir Halil. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#top" data-i18n="footer.top">Back to top ↑</a>
     </footer>
+
+    <script src="translations.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
